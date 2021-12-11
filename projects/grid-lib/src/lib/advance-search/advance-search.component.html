@@ -1,0 +1,60 @@
+<div class="advance-form" id="advancedSearch" [ngClass]="{'open':isOpen}">
+  <div class="row">
+    <div class="col-12">
+      <div class="advance-Header">
+        <div class="advance-Header-content">
+          <div class="advance-title">
+            <h6 class="{{advancedSearch.title?.class || ''}}">
+              <i *ngIf="advancedSearch.title?.icon"
+                 [class]=advancedSearch.title.icon></i>
+              <span>{{advancedSearch.title?.text}}</span>
+            </h6>
+          </div>
+          <button class="btn btn-close" type="button" (click)="closeAdvanceSearch()">
+            <span class="close-icon">×</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <form (ngSubmit)="onSubmitted()" [formGroup]="form">
+        <div class="advance-content">
+          <div class="row">
+            <div class="col-12">
+              <div *ngFor="let field of advancedSearch.inputs">
+                <app-advance-form-control
+                  [config]="field"
+                  [formGroupObj]="form">
+                </app-advance-form-control>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="advance-footer">
+              <div class="advance-footer-content">
+                <button type="submit"
+                        class="{{advancedSearch.searchButton?.class || ''}}">
+                  <i *ngIf="advancedSearch.searchButton?.icon"
+                     [class]=advancedSearch.searchButton.icon></i>
+                  <span>{{advancedSearch.searchButton?.text}}</span>
+                </button>
+
+                <button type="button"
+                        class="{{advancedSearch.resetButton?.class || ''}}"
+                        (click)="resetForm()">
+                  <i *ngIf="advancedSearch.resetButton?.icon"
+                     [class]=advancedSearch.resetButton.icon></i>
+                  <span>{{advancedSearch.resetButton?.text}}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

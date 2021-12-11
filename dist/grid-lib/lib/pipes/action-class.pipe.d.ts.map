@@ -1,0 +1,1 @@
+{"version":3,"file":"action-class.pipe.d.ts","sourceRoot":"../../../projects/grid-lib/src/","sources":["lib/pipes/action-class.pipe.ts"],"names":[],"mappings":"AAAA,OAAO,EAAO,aAAa,EAAC,MAAM,eAAe,CAAC;;AAElD,qBAGa,eAAgB,YAAW,aAAa;IAEnD,SAAS,CAAC,IAAI,EAAE,GAAG,GAAG,GAAG;iCAFd,eAAe;uCAAf,eAAe;CAa3B"}

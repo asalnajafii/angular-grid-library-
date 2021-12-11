@@ -1,0 +1,23 @@
+<div [formGroup]="formGroupObj">
+  <div class="form-group row">
+    <label class="col-12">{{selectWithApiType.config.label}}</label>
+    <div class="col-12">
+      <ng-select
+        class="custom input-search"
+        [items]="items$ | async"
+        [placeholder]="selectWithApiType.config.placeholder!"
+        [bindValue]="selectWithApiType.config.bindValue!"
+        [bindLabel]="selectWithApiType.config.bindLabel!"
+        [multiple]="selectWithApiType.config.multiple!"
+        [typeahead]="typeahead$"
+        [formControlName]="selectWithApiType.config.formControlName!"
+        [clearable]="selectWithApiType.config.clearable!">
+        <ng-template ng-label-tmp let-item="item" let-clear="clear">
+          <span class="ng-value-label">{{item[selectWithApiType.config.bindLabel!] }}</span>
+          <span class="ng-value-icon right" (click)="clear(item)"
+                aria-hidden="true" *ngIf="selectWithApiType.config.clearable">×</span>
+        </ng-template>
+      </ng-select>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,171 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "grid-lib": {
+      "projectType": "library",
+      "root": "projects/grid-lib",
+      "sourceRoot": "projects/grid-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/grid-lib/tsconfig.lib.json",
+            "project": "projects/grid-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/grid-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/grid-lib/src/test.ts",
+            "tsConfig": "projects/grid-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/grid-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/grid-lib/tsconfig.lib.json",
+              "projects/grid-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "grid-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/grid-app",
+      "sourceRoot": "projects/grid-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/grid-app",
+            "index": "projects/grid-app/src/index.html",
+            "main": "projects/grid-app/src/main.ts",
+            "polyfills": "projects/grid-app/src/polyfills.ts",
+            "tsConfig": "projects/grid-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/grid-app/src/favicon.ico",
+              "projects/grid-app/src/assets"
+            ],
+            "styles": [
+              "projects/grid-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/grid-app/src/environments/environment.ts",
+                  "with": "projects/grid-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "grid-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "grid-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "grid-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/grid-app/src/test.ts",
+            "polyfills": "projects/grid-app/src/polyfills.ts",
+            "tsConfig": "projects/grid-app/tsconfig.spec.json",
+            "karmaConfig": "projects/grid-app/karma.conf.js",
+            "assets": [
+              "projects/grid-app/src/favicon.ico",
+              "projects/grid-app/src/assets"
+            ],
+            "styles": [
+              "projects/grid-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/grid-app/tsconfig.app.json",
+              "projects/grid-app/tsconfig.spec.json",
+              "projects/grid-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/grid-app/e2e/protractor.conf.js",
+            "devServerTarget": "grid-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "grid-app:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "grid-lib",
+  "cli": {
+    "analytics": "a1d832e4-4e37-41bd-bc65-acce4598a670"
+  }
+}

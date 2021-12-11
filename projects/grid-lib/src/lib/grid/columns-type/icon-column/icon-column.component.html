@@ -1,0 +1,12 @@
+<ng-container *ngFor="let icon of row.icons">
+  <span class="mr-2"
+        [ngClass]="icon.customClass"
+        [tooltip]="icon.tooltip.tooltipText"
+        [delay]="icon.tooltip.delay"
+        [isDisabled]="icon.tooltip.isDisabled"
+        [tooltipAnimation]="icon.tooltip.tooltipAnimation"
+        [placement]="icon.tooltip.hasOwnProperty('placement')?icon.tooltip.placement:'top'"
+  >
+     <i  [ngClass]="icon.icon" [ngStyle]="{'color':icon.color}">{{icon.name}}</i>
+  </span>
+</ng-container>

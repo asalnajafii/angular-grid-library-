@@ -1,0 +1,1 @@
+{"version":3,"file":"icon-column.component.d.ts","sourceRoot":"../../../projects/grid-lib/src/","sources":["lib/grid/columns-type/icon-column/icon-column.component.ts"],"names":[],"mappings":"AAAA,OAAO,EAAmB,MAAM,EAAC,MAAM,eAAe,CAAC;;AAEvD,qBAKa,mBAAoB,YAAW,MAAM;IAChC,KAAK,EAAE,GAAG,CAAC;IACb,GAAG,EAAE,GAAG,CAAC;;IAGvB,QAAQ,IAAI,IAAI;iCALL,mBAAmB;2CAAnB,mBAAmB;CAQ/B"}

@@ -1,0 +1,8 @@
+<span [ngStyle]="{'color':row.color}">
+  <i [ngClass]="row.icon"></i>
+    <ng-container [ngSwitch]="value">
+      <span *ngSwitchCase=statusState.active>Active</span>
+      <span *ngSwitchCase=statusState.inactive>Inactive</span>
+      <span *ngSwitchCase=statusState.inProgress>In progress</span>
+    </ng-container>
+</span>

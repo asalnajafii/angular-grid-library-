@@ -1,0 +1,56 @@
+<form [formGroup]="dateForm">
+  <div class="form-group row">
+    <label class="col-12">{{dateRange.config.label}}</label>
+    <div class="col-12">
+      <div class="input-group">
+        <input
+          readonly="true"
+          (click)="from.toggle()"
+          ngbDatepicker
+          class="form-control from-input border-right-0 cursor-pointer"
+          [placeholder]="dateRange.config.fromPlaceHolder"
+          name="dateFrom"
+          formControlName="from"
+          [dayTemplate]="customDay"
+          #from="ngbDatepicker"
+          outsideDays="hidden">
+        <div class="input-group-prepend cursor-pointer">
+          <span class="input-group-text border-right-0 border-left-0">
+           <span class="close-icon" (click)="clearFromInput()">×</span>
+          </span>
+        </div>
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+           <i class="fa fa-ellipsis-h"></i>
+          </span>
+        </div>
+        <input
+          readonly="true"
+          (click)="to.toggle()"
+          ngbDatepicker
+          class="form-control to-input border-right-0 cursor-pointer"
+          [placeholder]="dateRange.config.toPlaceHolder"
+          name="dateTo"
+          formControlName="to"
+          [dayTemplate]="customDay"
+          #to="ngbDatepicker"
+          outsideDays="hidden">
+        <div class="input-group-prepend cursor-pointer">
+          <span class="input-group-text border-right-0 border-left-0">
+           <span class="close-icon" (click)="clearToInput()">×</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected"
+             let-disabled="disabled" let-focused="focused">
+		<span class="custom-day"
+          [class.focused]="focused"
+          [class.selected]="selected">
+		{{ date.day }}
+		</span>
+</ng-template>
+

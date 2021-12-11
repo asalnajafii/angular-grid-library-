@@ -1,0 +1,107 @@
+<!-- begin:Table -->
+<div class="angular-bootstrap-table">
+  <div class="table-box table-responsive">
+    <table class="table table-head-custom table-vertical-center table-striped">
+      <!--begin:header-->
+      <thead>
+        <header-table-cell [theadSortConfig]="tHeadSortConfig"
+                           [tHeadCustomWith]="tHeadCustomWith"
+                           [defaultSort]="grid.defaultSort"
+                           [theadLabel]="tHeadLabels"
+                           (sort)="sorting($event)"
+        ></header-table-cell>
+      </thead>
+      <!--end:header-->
+      <tbody>
+      <!--row-->
+      <ng-container *ngIf="dataLoading.value && rows.value.length>0;else noData">
+        <ng-container *ngFor="let rowItems of rows | async;let index=index">
+          <tr [ngClass]="rowItems|RowClassCallback:grid.rowClassCallback">
+            <td *ngFor="let rowItem of columnData">
+              <ng-container *ngTemplateOutlet="ColumnTemplate;
+                              context:{value:rowItems|nestedJson:rowItem.value,row:rowItem,column:rowItems}"></ng-container>
+            </td>
+          </tr>
+          <!--collapsed red More context-->
+          <tr [ngbCollapse]="!isCollapsed[rowItems['id']]"
+              [id]="rowItems&&rowItems['id']?'read-more'+rowItems['id']:''"></tr>
+        </ng-container>
+      </ng-container>
+      <!-- when we have no data-->
+      <ng-template #noData>
+        <div class="no-data text-center p-5">
+          <div class="spinner-border text-primary" role="status" *ngIf="!dataLoading.value">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <p *ngIf="rows.value.length==0 && dataLoading.value">
+            {{grid.noDataMessage}}
+          </p>
+        </div>
+      </ng-template>
+      </tbody>
+    </table>
+  </div>
+  <!-- end: Table -->
+  <div class="pagination-box">
+    <!-- begin:pagination -->
+    <ng-container *ngIf="dataLoading.value &&
+                         grid.pagination &&
+                          rows.value.length!==0">
+      <div class="d-flex mt-2">
+        <div class="mr-auto datatable-pager">
+          <ngb-pagination [collectionSize]="totalNumberOfData"
+                          [(page)]="page"
+                          #paginator
+                          [pageSize]="pageSize"
+                          [maxSize]="grid.pagination.maxSize?grid.pagination.maxSize:5"
+                          [rotate]="grid.pagination.rotate?grid.pagination.rotate:true"
+                          [boundaryLinks]="grid.pagination.boundaryLinks?grid.pagination.boundaryLinks:false"
+                          (pageChange)="changePage($event)">
+          </ngb-pagination>
+        </div>
+        <!-- begin:pagination item per page selector -->
+        <div class="select-pagination">
+          <ng-container *ngIf="grid.pagination.itemPerPageSelectorOption
+               && grid.pagination.itemPerPageSelectorOption.length>0">
+            <ng-select [items]="grid.pagination.itemPerPageSelectorOption"
+                       bindLabel="name"
+                       [searchable]="false"
+                       [clearable]="false"
+                       (change)="changePage(firstPage)"
+                       placeholder="Select city"
+                       [(ngModel)]="pageSize">
+            </ng-select>
+          </ng-container>
+        </div>
+        <!-- end:pagination item per page selector -->
+        <!-- begin:data information -->
+        <div class="ml-2 mt-1 paginate-detail">
+        <span *ngIf="!grid.pagination.hasOwnProperty('disableNumberOfData') || !grid.pagination.disableNumberOfData"
+              class="pagination-data-info">{{'Showing ' + numberOfDataStart + ' - ' + numberOfDataEnd + ' of ' + totalNumberOfData}}</span>
+        </div>
+        <!-- end:data information -->
+      </div>
+    </ng-container>
+    <!-- end:pagination -->
+  </div>
+</div>
+<!--start:columnTemplate -->
+<ng-template #ColumnTemplate let-row="row" let-value="value" let-column="column">
+  <ng-container [ngSwitch]="row.type">
+    <text-column *ngSwitchCase="'Text'" [value]="value" [row]="row"></text-column>
+    <boolean-column *ngSwitchCase="'Boolean'" [value]="value" [row]="row"></boolean-column>
+    <image-column *ngSwitchCase="'Image'" [value]="value" [row]="row"></image-column>
+    <icon-column *ngSwitchCase="'Icon'" [value]="value" [row]="row"></icon-column>
+    <custom-column *ngSwitchCase="'Custom'" [value]="value" [row]="row" [column]="column"></custom-column>
+    <date-column *ngSwitchCase="'Date'" [value]="value" [row]="row"></date-column>
+    <status-column *ngSwitchCase="'Status'" [value]="value" [row]="row"></status-column>
+    <action-column *ngSwitchCase="'Action'" [value]="value" [row]="row" [column]="column"></action-column>
+    <link-column *ngSwitchCase="'Link'" [value]="value" [row]="row" [column]="column"></link-column>
+    <read-more-column *ngSwitchCase="'ReadMore'" [value]="value" [column]="column" [row]="row"
+                      (readMoreData)="showReadMore($event)"
+                      (collapsedNotifier)="this.triggerCollapsed($event)"
+    ></read-more-column>
+  </ng-container>
+</ng-template>
+<!--  end: columnTemplate -->
+

@@ -1,0 +1,62 @@
+<!--wrap-->
+<div class="{{'text-'+row.position}}">
+  <!--button-->
+  <ng-container *ngIf="row.buttonItems">
+         <span *ngFor="let action of row.buttonItems">
+             <!--normal-->
+          <ng-container *ngIf="!action.customTemplate">
+              <!--dropDown-->
+            <ng-container *ngIf="action.buttonType==buttonType.DropDownButton;else simpleButton">
+              <span class="btn-group" dropdown>
+                <button id="button-basic"
+                        dropdownToggle
+                        type="button"
+                        [ngStyle]="{'padding': row.buttonPadding}"
+                        [ngClass]="action|actionBtnClass"
+                        class="btn dropdown-toggle {{action.customClass}}"
+                        aria-controls="dropdown-custom-html">
+                   <i *ngIf="action.dropDownIcon" class="{{action.dropDownIcon}}"></i>
+                  {{action.name}}
+                  <span class="caret"></span>
+                </button>
+                  <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                      role="menu" aria-labelledby="button-basic">
+                      <ng-container *ngFor="let dropDownOption of action.dropDownItems;let index=index">
+                         <li role="menuitem">
+                           <a class="dropdown-item"
+                              [ngClass]="dropDownOption.customClass"
+                              (click)="dropDownOption.onclick(column)">
+                               <i *ngIf="dropDownOption.icon" class="{{column|rowChangeName:dropDownOption.icon}}"></i>
+                             {{column|rowChangeName:dropDownOption.name}}
+                           </a>
+                         </li>
+                         <div *ngIf="dropDownOption.dropdownDivider" class="dropdown-divider"></div>
+                      </ng-container>
+                  </ul>
+                  </span>
+            </ng-container>
+            <!--simpleButton-->
+             <ng-template #simpleButton>
+             <button class="btn"
+                     [tooltip]="action.tooltip?action.tooltip.tooltipText:''"
+                     [placement]="action.tooltip?action.tooltip.placement:''"
+                     [delay]="action.tooltip?action.tooltip.delay:''"
+                     [ngStyle]="{'padding': row.buttonPadding}"
+                     [isDisabled]="action.tooltip?action.tooltip.isDisabled:''"
+                     [tooltipAnimation]="action.tooltip?action.tooltip.tooltipAnimation:''"
+                     [class]="action|actionBtnClass"
+                     [ngClass]="action.customClass"
+                     (click)="action.onclick(column)">
+                 <span *ngIf="action.classCallback(column)" [class]="action.classCallback(column)"></span>
+              <i *ngIf="action.icon" [ngClass]="action.icon"></i>
+              <span *ngIf="action.name"> {{action.name}}</span>
+              </button>
+             </ng-template>
+          </ng-container>
+           <!--custom template-->
+         	<ng-container *ngIf="action.customTemplate" [ngTemplateOutlet]="action.customTemplate"
+                        [ngTemplateOutletContext]="{row:column}">
+					</ng-container>
+        </span>
+  </ng-container>
+</div>

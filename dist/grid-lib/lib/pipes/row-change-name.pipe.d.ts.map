@@ -1,0 +1,1 @@
+{"version":3,"file":"row-change-name.pipe.d.ts","sourceRoot":"../../../projects/grid-lib/src/","sources":["lib/pipes/row-change-name.pipe.ts"],"names":[],"mappings":"AAAA,OAAO,EAAO,aAAa,EAAC,MAAM,eAAe,CAAC;;AAElD,qBAGa,iBAAkB,YAAW,aAAa;IAErD,SAAS,CAAC,OAAO,EAAE,GAAG,EAAE,KAAK,EAAE,GAAG,GAAG,GAAG;iCAF7B,iBAAiB;uCAAjB,iBAAiB;CAQ7B"}

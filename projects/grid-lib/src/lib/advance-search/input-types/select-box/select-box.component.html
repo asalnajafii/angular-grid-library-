@@ -1,0 +1,25 @@
+<div [formGroup]="formGroupObj">
+  <div class="form-group row">
+    <label class="col-12">{{selectType.config.label}}</label>
+    <div class="col-12">
+      <ng-select class="custom"
+                 [id]="selectType.config.id!"
+                 [items]="selectType.config.isStatic? selectType.config.items! : items"
+                 [multiple]="selectType.config.multiple!"
+                 [clearable]="selectType.config.clearable!"
+                 [searchable]="selectType.config.searchable!"
+                 [bindValue]="selectType.config.bindValue!"
+                 [bindLabel]="selectType.config.bindLabel!"
+                 [placeholder]="selectType.config.placeholder!"
+                 [formControlName]="selectType.config.formControlName!">
+        <ng-template ng-label-tmp let-item="item" let-clear="clear">
+          <span class="ng-value-label">{{item[selectType.config.bindLabel!]}}</span>
+          <span class="ng-value-icon right"
+                *ngIf="selectType.config.clearable"
+                (click)="clear(item)"
+                aria-hidden="true">×</span>
+        </ng-template>
+      </ng-select>
+    </div>
+  </div>
+</div>

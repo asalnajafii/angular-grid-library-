@@ -1,0 +1,1 @@
+{"version":3,"file":"row-class-callback.pipe.d.ts","sourceRoot":"../../../projects/grid-lib/src/","sources":["lib/pipes/row-class-callback.pipe.ts"],"names":[],"mappings":"AAAA,OAAO,EAAO,aAAa,EAAC,MAAM,eAAe,CAAC;;AAElD,qBAGa,oBAAqB,YAAW,aAAa;IAExD,SAAS,CAAC,OAAO,EAAE,GAAG,EAAE,KAAK,EAAE,GAAG,GAAG,GAAG;iCAF7B,oBAAoB;uCAApB,oBAAoB;CAShC"}

@@ -1,0 +1,10 @@
+<span>
+    <!--built in pipe-->
+  <ng-container *ngIf="row.pipeFormat==pipeFormat.date;else moment">
+  {{value|date:row.dateFormat}}
+  </ng-container>
+  <!--custom pipe-->
+  <ng-template #moment>
+     {{value|dateFormat:row.dateFormat}}
+  </ng-template>
+</span>

@@ -1,0 +1,1 @@
+{"version":3,"file":"pagination.pipe.d.ts","sourceRoot":"../../../projects/grid-lib/src/","sources":["lib/pipes/pagination.pipe.ts"],"names":[],"mappings":"AAAA,OAAO,EAAO,aAAa,EAAC,MAAM,eAAe,CAAC;;AAElD,qBAIa,cAAe,YAAW,aAAa;IAClD,SAAS,CAAC,IAAI,EAAE,GAAG,EAAE,WAAW,EAAE,MAAM,EAAE,QAAQ,EAAE,MAAM,GAAG,GAAG;iCADrD,cAAc;uCAAd,cAAc;CAK1B"}

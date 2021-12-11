@@ -1,0 +1,7 @@
+.rotate{
+  transition: 0.9s;
+  transform: rotate(90deg);
+}
+.read-more-icon{
+  transition: 0.9s;
+}

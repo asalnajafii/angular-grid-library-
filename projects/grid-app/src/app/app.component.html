@@ -1,0 +1,58 @@
+<button class="btn btn-primary"
+        type="button"
+        (click)="openAdvanceSearch()">
+  Open Advanced Search
+</button>
+<lib-search [search]="search"></lib-search>
+<lib-export [export]="export"></lib-export>
+<lib-grid
+  [grid]="grid"
+  [refreshGrid]="refresh"
+></lib-grid>
+<lib-advance-search
+  [advancedSearch]="advancedSearch">
+</lib-advance-search>
+
+<ng-template #mediaTitle let-value="value" let-row="row" let-column="column">
+  <div class="d-flex align-items-center">
+    <div class="mr-3 icon-in-table">
+      <i class="fa fa-{{column.type === 0 ? 'music-alt' : (column.type === 1 ? 'video' : 'compact-disc') }}"></i>
+    </div>
+    <div class="symbol symbol-50 flex-shrink-0">
+      <img src="https://via.placeholder.com/150" alt="photo">
+    </div>
+    <div class="ml-3">
+      <span class="font-weight-bold line-height-sm d-block pb-2">{{column.title}}</span>
+      <a href="#" class="text-muted text-hover-primary">---</a>
+    </div>
+  </div>
+</ng-template>
+<ng-template #humanReadAbleNumber let-value="value" let-row="row" let-column="column">
+  <span *ngFor="let item of value">
+    {{item.genre.title}}
+    <span>,</span>
+  </span>
+</ng-template>
+<ng-template #buttonTemp let-row="row">
+  <span>
+    {{row.title|json}}
+  </span>
+</ng-template>
+<ng-template #readMore1 let-row="row">
+  <span style="border:solid pink">
+    {{row.id}}fffffffffff
+  </span>
+</ng-template>
+<ng-template #readMore2 let-row="row">
+  <span style="border:solid orange">
+    {{row.id}}fffffffffff
+  </span>
+</ng-template>
+<ng-template #readMore3 let-row="row">
+  <span style="border:solid springgreen">
+    {{row.body}}
+  </span>
+  <i style="border:solid blue">
+    {{row.id}}amaneh
+  </i>
+</ng-template>

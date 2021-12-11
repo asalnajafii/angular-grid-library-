@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-12" [ngSwitch]="config.type">
+    <app-text-box *ngSwitchCase="typeOfEnum.TEXT"
+                  [textType]="config"
+                  [formGroupObj]="formGroupObj">
+    </app-text-box>
+    <app-select-box *ngSwitchCase="typeOfEnum.SELECT"
+                    [selectType]="config"
+                    [formGroupObj]="formGroupObj">
+    </app-select-box>
+    <app-select-box-with-api *ngSwitchCase="typeOfEnum.SELECT_WITH_API"
+                             [selectWithApiType]="config"
+                             [formGroupObj]="formGroupObj">
+    </app-select-box-with-api>
+    <app-date-range *ngSwitchCase="typeOfEnum.DATE_RANGE"
+                    [dateRange]="config"
+                    [formGroupObj]="formGroupObj">
+    </app-date-range>
+  </div>
+</div>

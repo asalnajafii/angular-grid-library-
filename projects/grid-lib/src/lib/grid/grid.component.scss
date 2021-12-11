@@ -1,0 +1,41 @@
+
+div#child_data_local_1 {
+  display: block;
+  width: 100%;
+}
+
+thead.datatable-head {
+  width: 100%;
+  display: table;
+}
+
+tbody.datatable-body {
+  display: table;
+  width: 100%;
+}
+
+table.datatable-table {
+  width: 100%;
+}
+tr#read-more1 {
+  width: 100%;
+}
+.disable-header{
+  width:20px;
+}
+.no-data{
+  width: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 15px;
+}
+table {
+  display: table;
+  width: 100%;
+  min-height: 100px;
+}
+.pagination-data-info{
+  vertical-align: top;
+  padding: 0 15px;
+}

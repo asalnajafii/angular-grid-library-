@@ -1,0 +1,31 @@
+<form>
+  <label *ngIf="search.inputLabel">{{search.inputLabel}}</label>
+  <div class="input-group">
+    <div *ngIf="search.icon"
+         class="input-group-prepend"
+         [ngClass]="search.iconCustomClass">
+    <span class="input-group-text" id="inputGroupPrepend">
+      <i [ngClass]="search.icon"></i>
+    </span>
+    </div>
+    <input id="search"
+           autocomplete="off"
+           class="form-control"
+           name="searchModel"
+           [(ngModel)]="searchModel"
+           [placeholder]="search.placeHolder"
+           aria-describedby="inputGroupPrepend"
+           #simpleSearchInput>
+    <button *ngIf="search.haveButton"
+            type="submit"
+            class="btn"
+            [ngClass]="search.buttonCustomClass"
+            appDebounceClick
+            (debounceClick)="searchCompleteOnButtonPress(searchModel)"
+            [debounceTime]="700"
+            >
+      {{search.buttonName}}
+    </button>
+  </div>
+</form>
+

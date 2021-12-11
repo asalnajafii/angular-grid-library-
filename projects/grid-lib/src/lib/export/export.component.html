@@ -1,0 +1,13 @@
+<button
+        type="submit"
+        class="btn"
+        [ngClass]="export.buttonCustomClass"
+        appDebounceClick
+        (debounceClick)="exportOnButtonPress()"
+        [debounceTime]="700"
+>
+  <i
+    *ngIf="export.icon"
+    [ngClass]="export.iconCustomClass"></i>
+  {{export.buttonName}}
+</button>

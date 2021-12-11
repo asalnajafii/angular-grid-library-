@@ -1,0 +1,22 @@
+export class GridService {
+    constructor(http) {
+        this.http = http;
+    }
+    /**
+     *
+     * @param apiAddress
+     * @param params
+     */
+    getData(apiAddress, params) {
+        return this.http.get(apiAddress, { params });
+    }
+    /**
+     *
+     * @param apiAddress
+     * @param body
+     */
+    postData(apiAddress, body) {
+        return this.http.post(apiAddress, body);
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ3JpZC5TZXJ2aWNlLmpzIiwic291cmNlUm9vdCI6Ii4uLy4uLy4uL3Byb2plY3RzL2dyaWQtbGliL3NyYy8iLCJzb3VyY2VzIjpbImxpYi9zZXJ2aWNlL2dyaWQuU2VydmljZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHQSxNQUFNLE9BQU8sV0FBVztJQUV0QixZQUFvQixJQUFnQjtRQUFoQixTQUFJLEdBQUosSUFBSSxDQUFZO0lBQ3BDLENBQUM7SUFFRDs7OztPQUlHO0lBQ0gsT0FBTyxDQUFDLFVBQWtCLEVBQUUsTUFBa0I7UUFDNUMsT0FBTyxJQUFJLENBQUMsSUFBSSxDQUFDLEdBQUcsQ0FBTyxVQUFVLEVBQUUsRUFBQyxNQUFNLEVBQUMsQ0FBQyxDQUFDO0lBQ25ELENBQUM7SUFFRDs7OztPQUlHO0lBQ0gsUUFBUSxDQUFDLFVBQWtCLEVBQUUsSUFBUztRQUNwQyxPQUFPLElBQUksQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFPLFVBQVUsRUFBRSxJQUFJLENBQUMsQ0FBQztJQUNoRCxDQUFDO0NBRUYiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0h0dHBDbGllbnQsIEh0dHBQYXJhbXN9IGZyb20gJ0Bhbmd1bGFyL2NvbW1vbi9odHRwJztcbmltcG9ydCB7T2JzZXJ2YWJsZX0gZnJvbSAncnhqcyc7XG5cbmV4cG9ydCBjbGFzcyBHcmlkU2VydmljZTxUaW4sIFRvdXQ+IHtcblxuICBjb25zdHJ1Y3Rvcihwcml2YXRlIGh0dHA6IEh0dHBDbGllbnQpIHtcbiAgfVxuXG4gIC8qKlxuICAgKlxuICAgKiBAcGFyYW0gYXBpQWRkcmVzc1xuICAgKiBAcGFyYW0gcGFyYW1zXG4gICAqL1xuICBnZXREYXRhKGFwaUFkZHJlc3M6IHN0cmluZywgcGFyYW1zOiBIdHRwUGFyYW1zKTogT2JzZXJ2YWJsZTxUb3V0PiB7XG4gICAgcmV0dXJuIHRoaXMuaHR0cC5nZXQ8VG91dD4oYXBpQWRkcmVzcywge3BhcmFtc30pO1xuICB9XG5cbiAgLyoqXG4gICAqXG4gICAqIEBwYXJhbSBhcGlBZGRyZXNzXG4gICAqIEBwYXJhbSBib2R5XG4gICAqL1xuICBwb3N0RGF0YShhcGlBZGRyZXNzOiBzdHJpbmcsIGJvZHk6IFRpbik6IE9ic2VydmFibGU8VG91dD4ge1xuICAgIHJldHVybiB0aGlzLmh0dHAucG9zdDxUb3V0PihhcGlBZGRyZXNzLCBib2R5KTtcbiAgfVxuXG59XG4iXX0=

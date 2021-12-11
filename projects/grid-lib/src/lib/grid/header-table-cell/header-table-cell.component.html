@@ -1,0 +1,40 @@
+<ng-container *ngFor="let tHead of theadLabel;let index=index">
+  <!--start :thead-->
+  <th *ngIf="tHead!=='';else disableHeader" style="{{this.tHeadCustomWith[index]['style']}}">
+    <div (click)="onSortClick(index)"
+         #sortingList
+         [ngClass]="{'sorting-start': isSortingStart && isSortingStart[index]}">
+      <div class="title-header">
+        {{tHead}}
+      </div>
+      <ng-container *ngTemplateOutlet="sortingIcon;
+                      context:{index:index,sortableStatus:this.theadSortConfig[index]['sortable'],
+                      sortColumnValue:this.theadSortConfig[index]['value']}"></ng-container>
+    </div>
+  </th>
+  <ng-template #disableHeader>
+    <th class="disable-header"></th>
+  </ng-template>
+  <!--end :thead-->
+</ng-container>
+
+<!--start:sort icon template-->
+<ng-template #sortingIcon  let-sortableStatus="sortableStatus" let-sortColumnValue="sortColumnValue">
+  <ng-container *ngIf="sortableStatus!==false">
+    <div class="filter-box">
+      <!--start:we have situation to have default sort and icon must be based on config-->
+      <ng-container *ngIf="defaultSort && (sortColumnValue=== defaultSort.sortColumn);else haveNoDefault">
+        <i class="filter-icon fal"
+           [ngClass]="defaultSort.sortDir===sortDir?'fa-long-arrow-down':'fa-long-arrow-up'"></i>
+      </ng-container>
+      <!--end:we have situation to have default sort and icon must be based on config-->
+      <!--start:we dont have default sort-->
+      <ng-template #haveNoDefault>
+        <i class="filter-icon fal fa-sort-alt"></i>
+      </ng-template>
+      <!--end:we dont have default sort-->
+    </div>
+  </ng-container>
+</ng-template>
+<!--end:sort icon template-->
+

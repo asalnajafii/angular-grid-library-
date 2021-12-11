@@ -1,0 +1,13 @@
+<a (click)="triggerCollapsed(column.id)"
+   role="button"
+   aria-expanded="false"
+   [ngClass]="row.btnClass?row.btnClass:''"
+   aria-controls="collapseExample">
+  <i *ngIf="row.iconName"
+     class="read-more-icon"
+     [ngClass]="[row.iconName?row.iconName:'',addClass?'rotate':'']"></i>
+  <span *ngIf="row.btnName">{{row.btnName}}</span>
+</a>
+
+
+

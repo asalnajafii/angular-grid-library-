@@ -1,0 +1,1 @@
+{"version":3,"file":"grid-factory.service.d.ts","sourceRoot":"../../../projects/grid-lib/src/","sources":["lib/service/grid-factory.service.ts"],"names":[],"mappings":"AAEA,OAAO,EAAC,UAAU,EAAC,MAAM,sBAAsB,CAAC;;AAEhD,qBACa,kBAAkB;IAEjB,OAAO,CAAC,IAAI;gBAAJ,IAAI,EAAE,UAAU;IAGpC;;;;OAIG;IACH,iBAAiB,CAAC,YAAY,EAAE,MAAM,GAAG,GAAG;iCAVjC,kBAAkB;qCAAlB,kBAAkB;CAa9B"}

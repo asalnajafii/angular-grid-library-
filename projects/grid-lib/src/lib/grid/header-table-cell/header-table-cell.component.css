@@ -1,0 +1,10 @@
+::ng-deep header-table-cell {
+  display: table-row;
+}
+
+::ng-deep .filter-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "@music-platform/grid",
+  "version": "0.0.14",
+  "peerDependencies": {
+    "@angular/common": "^11.0.5",
+    "@angular/core": "^11.0.5"
+  },
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "~9.0.0",
+    "@ng-select/ng-select": "^6.1.0",
+    "@types/lodash": "^4.14.167",
+    "lodash": "^4.17.20",
+    "moment": "^2.29.1",
+    "ngx-bootstrap": "^6.2.0",
+    "tslib": "^2.0.0"
+  },
+  "main": "bundles/music-platform-grid.umd.js",
+  "module": "fesm2015/music-platform-grid.js",
+  "es2015": "fesm2015/music-platform-grid.js",
+  "esm2015": "esm2015/music-platform-grid.js",
+  "fesm2015": "fesm2015/music-platform-grid.js",
+  "typings": "music-platform-grid.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by Ivy. This is not allowed.\\nPlease delete and rebuild the package, without compiling with Ivy, before attempting to publish.\\n')\" && exit 1"
+  }
+}

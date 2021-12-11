@@ -1,0 +1,6 @@
+<img src="{{value}}"
+     alt="{{row.alt}}"
+     class="img-thumbnail {{'float-'+row.float}}"
+     [ngClass]="row.customClass?row.customClass:''"
+     [ngStyle]="{'max-width.px':row.maxWidth}"
+>
